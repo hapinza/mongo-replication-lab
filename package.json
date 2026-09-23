@@ -1,0 +1,10 @@
+{
+  "name": "mongo-replication-lab",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "MongoDB replica set failover lab - measure write loss, stale reads, and latency across writeConcern/readPreference settings",
+  "dependencies": {
+    "mongodb": "^6.8.0"
+  }
+}

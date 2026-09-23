@@ -1,0 +1,16 @@
+{
+  "label": "stale-primary",
+  "readPreference": "primary",
+  "probes": 100,
+  "backgroundWrites": 5890,
+  "staleCount": 0,
+  "staleRatio": 0,
+  "timeoutCount": 0,
+  "replicationLagMs": {
+    "p50": null,
+    "p95": null,
+    "p99": null,
+    "max": null,
+    "samples": 0
+  }
+}

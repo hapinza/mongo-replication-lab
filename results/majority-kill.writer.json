@@ -1,0 +1,49 @@
+{
+  "label": "majority-kill",
+  "writeConcern": {
+    "w": "majority",
+    "j": false
+  },
+  "retryWrites": false,
+  "durationMs": 40039,
+  "concurrency": 10,
+  "ackedCount": 4465,
+  "failedCount": 40,
+  "throughputPerSec": 111.5,
+  "latencyMs": {
+    "p50": 51,
+    "p95": 125,
+    "p99": 301,
+    "max": 452
+  },
+  "firstErrorAtMs": 13135,
+  "lastErrorAtMs": 38198,
+  "approxUnavailableMs": 25063,
+  "errorSample": [
+    {
+      "t": 13135,
+      "name": "MongoNetworkError",
+      "message": "connection 10 to 172.20.0.3:27017 closed"
+    },
+    {
+      "t": 13147,
+      "name": "MongoNetworkError",
+      "message": "connection 1 to 172.20.0.3:27017 closed"
+    },
+    {
+      "t": 13147,
+      "name": "MongoNetworkError",
+      "message": "connection 2 to 172.20.0.3:27017 closed"
+    },
+    {
+      "t": 13148,
+      "name": "MongoNetworkError",
+      "message": "connection 3 to 172.20.0.3:27017 closed"
+    },
+    {
+      "t": 13149,
+      "name": "MongoNetworkError",
+      "message": "connection 4 to 172.20.0.3:27017 closed"
+    }
+  ]
+}

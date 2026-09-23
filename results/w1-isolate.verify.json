@@ -1,0 +1,11 @@
+{
+  "label": "w1-isolate",
+  "ackedCount": 3120,
+  "presentCount": 3118,
+  "lostCount": 2,
+  "lostRatio": 0.000641,
+  "lostSample": [
+    "w1-isolate-1889",
+    "w1-isolate-1888"
+  ]
+}

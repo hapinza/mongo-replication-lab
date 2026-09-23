@@ -1,0 +1,74 @@
+services:
+  mongo1:
+    image: mongo:7
+    container_name: rs-mongo1
+    command: ["mongod", "--replSet", "rs0", "--bind_ip_all", "--port", "27017"]
+    networks:
+      - rsnet
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping')"]
+      interval: 3s
+      timeout: 5s
+      retries: 30
+
+  mongo2:
+    image: mongo:7
+    container_name: rs-mongo2
+    command: ["mongod", "--replSet", "rs0", "--bind_ip_all", "--port", "27017"]
+    networks:
+      - rsnet
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping')"]
+      interval: 3s
+      timeout: 5s
+      retries: 30
+
+  mongo3:
+    image: mongo:7
+    container_name: rs-mongo3
+    command: ["mongod", "--replSet", "rs0", "--bind_ip_all", "--port", "27017"]
+    networks:
+      - rsnet
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping')"]
+      interval: 3s
+      timeout: 5s
+      retries: 30
+
+  # ??踰??ㅽ뻾?섍퀬 醫낅즺. ?덊뵆由ъ뭅?뗭쓣 援ъ꽦?쒕떎.
+  rs-init:
+    image: mongo:7
+    container_name: rs-init
+    depends_on:
+      mongo1:
+        condition: service_healthy
+      mongo2:
+        condition: service_healthy
+      mongo3:
+        condition: service_healthy
+    networks:
+      - rsnet
+    volumes:
+      - ./scripts:/scripts:ro
+    entrypoint: ["mongosh", "--host", "mongo1:27017", "--quiet", "--file", "/scripts/rs-init.js"]
+    restart: "no"
+
+  # ?ㅽ뿕 ?ㅽ겕由쏀듃瑜??뚮━??而⑦뀒?대꼫.
+  # rsnet ?덉뿉 ?덉뼱??mongo1/mongo2/mongo3 ?몄뒪?몃챸???댁꽍?쒕떎.
+  # `docker compose up` ?쇰줈?????④퀬, `docker compose run --rm app ...` ?쇰줈留??대떎.
+  app:
+    build: .
+    container_name: rs-app
+    profiles: ["tools"]
+    networks:
+      - rsnet
+    working_dir: /app
+    volumes:
+      - ./src:/app/src:ro
+      - ./results:/app/results
+    environment:
+      MONGO_URI: "mongodb://mongo1:27017,mongo2:27017,mongo3:27017/lab?replicaSet=rs0"
+
+networks:
+  rsnet:
+    driver: bridge

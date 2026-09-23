@@ -1,0 +1,19 @@
+{
+  "label": "w1-kill",
+  "ackedCount": 15666,
+  "presentCount": 15655,
+  "lostCount": 11,
+  "lostRatio": 0.000702,
+  "lostSample": [
+    "w1-kill-4638",
+    "w1-kill-4639",
+    "w1-kill-4641",
+    "w1-kill-4640",
+    "w1-kill-4642",
+    "w1-kill-4644",
+    "w1-kill-4646",
+    "w1-kill-4647",
+    "w1-kill-4645",
+    "w1-kill-4643"
+  ]
+}

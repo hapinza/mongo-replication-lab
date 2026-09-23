@@ -1,0 +1,16 @@
+{
+  "label": "stale-secondary",
+  "readPreference": "secondary",
+  "probes": 100,
+  "backgroundWrites": 8910,
+  "staleCount": 88,
+  "staleRatio": 0.88,
+  "timeoutCount": 0,
+  "replicationLagMs": {
+    "p50": 36,
+    "p95": 134,
+    "p99": 183,
+    "max": 183,
+    "samples": 88
+  }
+}

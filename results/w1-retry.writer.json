@@ -1,0 +1,23 @@
+{
+  "label": "w1-retry",
+  "writeConcern": {
+    "w": 1,
+    "j": false
+  },
+  "retryWrites": true,
+  "durationMs": 40072,
+  "concurrency": 10,
+  "ackedCount": 15112,
+  "failedCount": 0,
+  "throughputPerSec": 377.1,
+  "latencyMs": {
+    "p50": 8,
+    "p95": 52,
+    "p99": 118,
+    "max": 407
+  },
+  "firstErrorAtMs": null,
+  "lastErrorAtMs": null,
+  "approxUnavailableMs": 0,
+  "errorSample": []
+}

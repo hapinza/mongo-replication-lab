@@ -1,0 +1,49 @@
+{
+  "label": "w1-kill",
+  "writeConcern": {
+    "w": 1,
+    "j": false
+  },
+  "retryWrites": false,
+  "durationMs": 40154,
+  "concurrency": 10,
+  "ackedCount": 15666,
+  "failedCount": 30,
+  "throughputPerSec": 390.1,
+  "latencyMs": {
+    "p50": 9,
+    "p95": 36,
+    "p99": 77,
+    "max": 440
+  },
+  "firstErrorAtMs": 14097,
+  "lastErrorAtMs": 20232,
+  "approxUnavailableMs": 6135,
+  "errorSample": [
+    {
+      "t": 14097,
+      "name": "MongoNetworkError",
+      "message": "read ECONNRESET"
+    },
+    {
+      "t": 14099,
+      "name": "MongoNetworkError",
+      "message": "read ECONNRESET"
+    },
+    {
+      "t": 14100,
+      "name": "MongoNetworkError",
+      "message": "read ECONNRESET"
+    },
+    {
+      "t": 14101,
+      "name": "MongoNetworkError",
+      "message": "read ECONNRESET"
+    },
+    {
+      "t": 14102,
+      "name": "MongoNetworkError",
+      "message": "read ECONNRESET"
+    }
+  ]
+}
